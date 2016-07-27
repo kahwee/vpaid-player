@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+.idea/
+coverage/
+assets.json
+.DS_Store
+deployment
+*.map
+**/temp.json
+.project
+.settings

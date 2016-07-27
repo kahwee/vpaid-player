@@ -1,0 +1,42 @@
+{
+  "name": "vpaid-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "browserify": "browserify src/index.js  --debug | exorcist dist/vpaid-player.js.map > dist/vpaid-player.js",
+    "uglify": "uglifyjs dist/vpaid-player.js -o dist/vpaid-player.min.js -c -m --screw-ie8",
+    "build": "npm run browserify && npm run uglify",
+    "start": "http-server -p 12888",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-istanbul": "^0.11.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2016": "^6.11.3",
+    "babelify": "^7.3.0",
+    "exorcist": "^0.4.0",
+    "browserify": "^13.1.0",
+    "vpaid-html5-client": "^0.1.14"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "es2016"
+          ]
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}

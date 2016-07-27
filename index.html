@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <video id="video" width=480 height=360></video>
+  <div id="container" style="width:480; height:360"></div>
+  <script src="./dist/vpaid-player.js"></script>
+  <script>
+    window.vpaid.loadAdUnit('https://s3.amazonaws.com/m-vast-vpaid-server/static/vpaid/dcheung_sizmek.js', onLoad)
+
+    function onLoad (err, adUnit) {
+      if (err) return
+
+      adUnit.subscribe('AdLoaded', onInit)
+      adUnit.subscribe('AdStarted', onStart)
+
+      adUnit.handshakeVersion('2.0', onHandShake)
+
+      function onHandShake (error, result) {
+        adUnit.initAd(480, 360, 'normal', -1, {
+          AdParameters: '{"tag" : "https://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=rsb&c=31&ai=29738435&dg=3917123&sdg=6774085&PluID=0&sessionId=7418477019358539761&filghtId=&ta=-1&optOut=0","skipoffset":"5"}'
+        }, {})
+      }
+
+      function onInit () {
+        adUnit.startAd()
+      }
+
+      function onStart () {
+        console.log('-> AdStarted')
+      }
+    }
+
+  </script>
+</body>
+</html>
