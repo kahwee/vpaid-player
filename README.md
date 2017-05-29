@@ -1,5 +1,7 @@
 # vpaid-player
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kahwee/vpaid-player.svg)](https://greenkeeper.io/)
+
 This runs the vpaid-player. See `index.html` for more details.
 
 ## Prerequisites
